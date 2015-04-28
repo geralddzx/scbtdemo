@@ -1,0 +1,45 @@
+<script>
+(function(){
+	
+	String.prototype.datetimeDisplay = function(){
+		return moment(this.toString()).format("LLL")
+	}
+
+	String.prototype.datetimeInput= function(){
+		return moment(this.toString()).format("YYYY-MM-DDTHH:mm")
+	}	
+
+	String.prototype.formatDatetime = function (format){
+		return moment(this.toString()).format(format)
+	}	
+
+	var currentUser = scbtVars.currentUser = {}
+	<% if current_user %>
+		currentUser.id = "<%= current_user.id %>"
+		currentUser.role = "<%= current_user.role %>"
+		currentUser.email = "<%= current_user.email %>"
+	<% end %>
+	currentUser.student = function(){
+		return currentUser.role == "student"
+	}
+	currentUser.admin = function(){
+		return currentUser.role == "admin" || currentUser.role == "master"
+	}
+	currentUser.instructor = function(){
+		return currentUser.role == "instructor"
+	}
+	currentUser.master = function(){
+		return currentUser.role == "master"
+	}
+
+	scbtVars.referrals = []
+	<% User::REFERRALS.each do |referral| %>
+		scbtVars.referrals.push('<%= referral %>')
+	<% end %>
+	
+	scbtVars.datetimeNow = function(){
+		return new Date().toString()
+	}
+
+})()
+</script>

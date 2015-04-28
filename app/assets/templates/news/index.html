@@ -1,0 +1,24 @@
+<div class="div-row">
+	<h3>News</h3>
+	<a ng-show="currentUser.admin()" href="#news/new" class="btn btn-default btn-head">New News</a>
+	<input ng-model="query" ng-change="updateItems(query)" class="form-control" placeholder="Name Search">
+</div>
+
+<table class="table shaded fixed-news-table">
+	<tr ng-repeat="new in news | orderBy: 'datetime':true | pageFilter: currentPage:itemsPerPage">
+		<td>
+			<a href="#/news/{{new.id}}">
+				<h5>{{new.title}}</h5>
+			</a>
+			<h5>{{new.description}}</h5>
+		</td>
+		<td ng-show="currentUser.admin()" class="light-font">{{new.author_name}}</td>
+		<td class="light-font">{{new.datetime.datetimeDisplay()}}</td>
+		<td>
+			<a class="btn btn-info" ng-show="currentUser.admin()" href="#news/{{new.id}}/edit">Edit</a>
+		</td>
+		<td>
+			<a ng-show="currentUser.admin()" class="btn btn-danger" scbt-remove="api/news/{{new.id}} | Are you sure you want to remove this news? All content will be lost after removal">Remove</a>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html
+	<% if @app %> 
+		ng-app="<%= @app %>"
+	<% else %>
+		ng-app="angular"
+	<% end %>
+>
+<head>
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>SCBT</title>
+	<%= favicon_link_tag 'favicon.ico' %>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+	<script>scbtVars = {}</script>
+	<%= render partial: @header_path || "layouts/header" %>
+	<%= render partial: @navbar_path || "navbar" %>
+
+	<%= yield %>
+
+	<% if @footer_path %>
+		<%= render partial: @footer_path %>
+	<% end %>
+</body>
+	<%= render partial: "layouts/script" %>
+	<%= javascript_include_tag 'application' %>
+	<%= render partial: "layouts/filepicker" %>
+</html>

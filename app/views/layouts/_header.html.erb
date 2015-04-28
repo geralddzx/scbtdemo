@@ -1,0 +1,27 @@
+<div id="header">
+	<div ng-link="/" class="logo-group">
+		<%= image_tag('logo.png') %>
+		<h1>
+			<div class="top">Stanford International College</div>
+			<div class="bottom">of Business and Technology</div>
+		</h1>
+	</div>
+
+	<% if current_user %>
+		<div id="status">
+			Welcome <%= current_user.first_name.capitalize %> (<%= current_user.username %>)
+		</div>
+	<% end %>
+
+	<div id="header-group">
+		<a href="tel:1-888-683-1608" class="phone-link">1-888-683-1608</a>
+		<% if current_user %>
+			<% if current_user.admin? %>
+				<%= link_to 'Admin Center', "/admin", :class => "fade-button scbt-button btn btn-default" %>
+			<% end %>
+			<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "fade-button scbt-button btn btn-default" %>
+		<% else %>
+			<%= link_to 'Sign In', new_user_session_path, :method => :get, :class => "fade-button scbt-button btn btn-default" %>
+		<% end %>
+	</div>
+</div>

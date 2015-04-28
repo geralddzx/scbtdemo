@@ -1,0 +1,7 @@
+<% if current_user && current_user.admin? %>
+	<script>
+		$.getScript("//api.filepicker.io/v1/filepicker.js", function(){
+			filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>")
+		})
+	</script>
+<% end %>

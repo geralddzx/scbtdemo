@@ -1,0 +1,15 @@
+<form class="vertical-form" scbt-submit="put | api/news/{{news.id}}">
+	<h3>Edit News</h3>
+	<input type="text" name="news[title]" placeholder="Title" class="form-control" value="{{news.title}}"/>
+
+	<input type="text" name="news[description]" placeholder="Description" class="form-control" value="{{news.description}}"/>
+
+	<input type="datetime-local" class="form-control" name="news[datetime]" value="{{news.datetime}}"/>
+	</div>
+
+	<text-angular class="wide" ng-model="htmlContent" name="news[content]"></text-angular>
+
+	<textarea class="wide" rows="5" ng-model="htmlContent"></textarea>
+
+	<input type="submit" class="btn btn-primary form-control" value="Update News">
+</form>

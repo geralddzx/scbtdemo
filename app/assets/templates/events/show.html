@@ -1,0 +1,8 @@
+<h2>{{event.title}}</h2>
+<h6 class="light-font">
+	{{event.datetime.datetimeDisplay()}}
+	&nbsp; at &nbsp;
+	{{event.location}}
+</h6>
+<hr>
+<div ng-bind-html="event.content | trustedHtml"></div>

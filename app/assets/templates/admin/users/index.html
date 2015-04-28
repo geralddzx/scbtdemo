@@ -1,0 +1,30 @@
+<div class="div-row">
+	<a href="#users/new" class="btn btn-default btn-head">New User</a>
+	<input ng-model="query" class="form-control" placeholder="Name Search">
+</div>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Role</th>
+		<th>Sign In Count</th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<tr class="{{bootstrapClass[user.role]}}" ng-repeat="user in users | filter:{name: query} | orderBy:'name'">
+		<td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
+		<td>{{user.username}}</td>
+		<td>{{user.email}}</td>
+		<td>{{user.role}}</td>
+		<td>{{user.sign_in_count}}</td>
+		<td>
+			<a class="btn btn-info" ng-show="currentUser.master() || user.role == 'student' || user.role == 'instructor'" href="#users/{{user.id}}/edit">Edit</a>
+		</td>
+		<td>
+			<a ng-show="currentUser.master() || user.role == 'student' || user.role == 'instructor'" class="btn btn-danger" scbt-remove="api/users/{{user.id}} | Caution! You are about to remove a user. This will remove all the records related to the user. Consult a master before doing this. Do you want to continue?">Remove</a>
+		</td>
+	</tr>
+</table>

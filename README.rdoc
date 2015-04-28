@@ -1,0 +1,52 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+pg_restore --verbose -a --clean --no-acl --no-owner -d scbt-development db/backups/backup_id
+
+heroku pg:backups capture
+
+heroku pg:backups restore b003 HEROKU_POSTGRESQL_CYAN_URL -a scbt
+
+#Heroku commands
+git push heroku master
+heroku addons:add newrelic
+heroku addons:open newrelic
+
+heroku pg:reset HEROKU_POSTGRESQL_CRIMSON_URL
+heroku run rake db:migrate
+heroku run rake db:seed
+
+figaro heroku:set
+heroku run rails c
+
+Program.find_each(&:save)
+
+foreman start
+
+heroku ps

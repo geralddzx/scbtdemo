@@ -1,0 +1,99 @@
+<div class="row content-row">
+	<div class="col-xs-6">
+		<h2>
+			<!-- <span class="glyphicon glyphicon-education"></span> -->
+			Why Stanford
+		</h2>
+		<p>
+			Our goal at Stanford International College is to provide quality, student centered and career focused education which will facilitate the personal growth and employment of our students.Our philosophy is to meet the individual needs of each student and our programs are designed to accommodate current employment requirements. Our success is due to our dedicated and highly trained staff who care about your future success.
+		</p>
+
+		<p>
+			Our programs are instructor led and our hands-on-approach has proven effective for the learning and retention of knowledge. Our qualified instructors bring years of experience to the classroom and maintain their professional and trade skills.This enables them to share the most current and updated information with their students.Our instructors work closely with students helping them to reach their goals.
+		</p>
+	</div>
+
+	<div class="col-xs-5 gallery">
+		<a href="">
+			<div class="background" ng-back-img="home/faculties/trades.jpg">
+				<div class="overlay" style="background-color:#FFCC00">
+					<span>Faculty of Trades</span>
+				</div>
+			</div>
+		</a>
+
+		<a href="">
+			<div class="background" ng-back-img="home/faculties/business.jpg">
+				<div class="overlay" style="background-color:black">
+					<span>Faculty of Business</span>
+				</div>
+			</div>
+		</a>
+
+		<a href="">
+			<div class="background" ng-back-img="home/faculties/technology.jpg">
+				<div class="overlay" style="background-color:#3333CC">
+					<span>Faculty of Technology</span>
+				</div>
+			</div>
+		</a>
+
+		<a href="">
+			<div class="background" ng-back-img="home/faculties/healthcare.jpg">
+				<div class="overlay" style="background-color:#CC0000">
+					<span>Faculty of Health Care</span>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+
+<div class="row content-row">
+	<div class="col-xs-6" ng-controller="newsIndexCtrl" ng-init="itemsPerPage=3">
+		<div ng-include="'news/index.html'"></div>
+		<pagination items-per-page="itemsPerPage" ng-model="currentPage" total-items="totalItems" max-size="10"></pagination>
+	</div>
+
+	<div class="col-xs-5" ng-controller="eventsIndexCtrl" ng-init="itemsPerPage=3; displayFilter=true">
+		<div ng-include="'events/index.html'"></div>
+	</div>
+</div>
+
+
+<div class="row content-row">
+	<div class="col-xs-6" ng-init="hideFields=true" ng-include="'inquiries/new.html'">
+	</div>
+
+	<div class="col-xs-5">
+		<h3>Connect With Us</h3>
+		<div class="flex-row">
+			<a href="#/inquiries/new" class="fade-button scbt-button btn btn-default fix-width-button">Book A Tour</a>
+
+			<a href="#/inquiries/new" class="fade-button scbt-button btn btn-default fix-width-button">I Have A Question</a>			
+		</div>
+
+		<div class="div-row">
+			<a href="https://www.facebook.com/college.stanford">
+				<img src="images/home/social_media/facebook.jpg">
+			</a>
+			<a href="http://www.yelp.ca/biz/stanford-international-college-of-business-and-technology-scarborough">
+				<img src="images/home/social_media/yelp.png">
+			</a>
+			<a href="https://plus.google.com/110690499199683069802/about">
+				<img src="images/home/social_media/google.jpg">
+			</a>
+			<a href="https://www.youtube.com/user/stanfordcollege">
+				<img src="images/home/social_media/youtube.png">
+			</a>
+			<a href="https://www.linkedin.com/company/5294176?trk=tyah&trkInfo=clickedVertical%3Acompany%2Cidx%3A1-1-1%2CtarId%3A1429724182353%2Ctas%3Astanford%20internation">
+				<img src="images/home/social_media/linkedin.jpg">
+			</a>
+		</div>
+		
+		<br>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,32 @@
+<div class="div-row">
+	<h3>Inquiries</h3>
+	<input ng-model="query" class="form-control" placeholder="Search">
+</div>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Subject</th>
+		<th>Created At</th>
+		<th>IP Address</th>
+		<th>Http User Agent</th>
+		<th></th>
+	</tr>
+
+	<tr class="{{bootstrapClass(inquiry)}}" ng-repeat="inquiry in inquiries | filter: query | orderBy:'created_at'">
+		<td>{{inquiry.name}}</td>
+		<td>{{inquiry.email}}</td>
+		<td>{{inquiry.phone}}</td>
+		<td>{{inquiry.subject}}</td>
+		<td>{{inquiry.created_at.datetimeDisplay()}}</td>
+		<td>{{inquiry.ip_address}}</td>
+		<td>{{inquiry.http_user_agent}}</td>
+		<td>
+			<div ng-if="!inquiry.read">
+				<a class="btn btn-info" scbt-put="api/inquiries/{{inquiry.id}}/mark_read">Mark Read</a>
+			</div>
+		</td>
+	</tr>
+</table>

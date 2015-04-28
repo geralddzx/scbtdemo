@@ -1,0 +1,18 @@
+<form class="narrow-form center border-form" action="<%= user_password_url %>" method="post">
+  <h3>Forgot Your Password?</h3>
+  <p>
+    Enter the email address associated with your account, and we'll email you a link to reset your password.
+  </p>
+
+  <input 
+    type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+    
+  <input class="form-control"
+    placeholder="email"
+    type="email"
+    name="user[email]" 
+  >
+  <input type="submit" class="btn btn-primary btn-block" value="Send Reset Link">
+</form> 

@@ -1,0 +1,11 @@
+<div id="header-narrow">
+	<div ng-link="/" id="logo-group">
+		<h3>Stanford International College</h3>
+		<%= image_tag('logo.png') %>
+	</div>
+	<div id="header-group">
+		<a href="/">Home</a>
+		<a href="/user">Account</a>
+		<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+	</div> 
+</div>

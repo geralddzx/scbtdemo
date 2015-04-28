@@ -1,0 +1,44 @@
+<h3>Edit User</h3>
+<form autocomplete="off" class="form-table" scbt-submit="put | api/users/{{user.id}}">
+	<div class="form-col vertical-form">
+		<input type="text" name="user[first_name]" placeholder="First Name"	class="form-control" value="{{user.first_name}}"/>
+
+		<input type="text" name="user[last_name]" placeholder="Last Name" class="form-control" value="{{user.last_name}}"/>
+
+		<input type="email" name="user[email]" placeholder="Email" class="form-control" value="{{user.email}}"/>
+
+		<input type="text" name="user[number]" placeholder="Student Number"	class="form-control" value="{{user.number}}"/>
+
+		<input type="text" name="user[phone]" placeholder="Phone Number(10 digits)" class="form-control" minlength="10" maxlength="10" value="{{user.phone}}"/>
+
+		<input type="submit" class="btn btn-primary form-control" value="Edit User">
+	</div>
+
+	<div class="form-col">
+		<h4>Role</h4>
+		<select class="form-control" name="user[role]">
+		    <option ng-selected="user.role == 'student'">Student</option>
+		    <option ng-selected="user.role == 'instructor'">Instructor</option>
+		    <option ng-selected="user.role == 'admin'" ng-if="currentUser.master()">Admin</option>
+		    <option ng-if="currentUser.master()" ng-selected="user.role == 'master'">Master</option>
+		</select>
+
+		<br>
+		<h4>Referral</h4>
+		<select ng-model="userReferral" class="form-control" name="user[referral]">
+		    <option ng-repeat="referral in referrals">{{referral}}</option>
+		</select>
+		<input placeholder="Enter Referral" type="text" ng-model="userReferral" value="{{user.referral}}" name="user[referral]" class="form-control"/>
+	</div>
+
+	<div class="form-col">
+		<h4>Address</h4>
+		<div class="border-form vertical-form">
+			<input type="text" name="user[street]" placeholder="Street Name and Number" class="form-control" value="{{user.street}}"/>
+
+			<input type="text" name="user[city]" placeholder="City" class="form-control" value="{{user.city}}"/>
+
+			<input type="text" name="user[postal_code]" placeholder="Postal Code" class="form-control" value="{{user.postal_code}}"/>
+		</div>
+	</div>
+</form>

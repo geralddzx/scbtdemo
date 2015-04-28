@@ -1,0 +1,8 @@
+<h2>{{news.title}}</h2>
+<h6 class="light-font">
+	{{news.datetime.datetimeDisplay()}} 
+	&nbsp; by &nbsp;
+	{{news.author_name}}
+</h6>
+<hr>
+<div ng-bind-html="news.content | trustedHtml"></div>

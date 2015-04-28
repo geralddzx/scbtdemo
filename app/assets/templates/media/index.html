@@ -1,0 +1,40 @@
+<div class="div-row">
+	<h3>Media</h3>
+	<a ng-show="currentUser.admin()" ng-click="pickFiles()" class="btn btn-default btn-head">New File/Files</a>
+	<input ng-model="query" class="form-control" placeholder="Search Media">
+</div>
+
+<table class="table">
+	<tr>
+		<th>File Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>URL</th>
+		<th>Upload Datetime</th>
+		<th>Uploader</th>
+		<th></th>
+		<!-- <th>Slider</th> -->
+		<th></th>
+	</tr>
+
+	<tr ng-repeat="medium in media | filter: query | orderBy: 'created_at':true">
+		<td>{{medium.filename}}</td>
+		<td>{{medium.mimetype}}</td>
+		<td>{{medium.size}}</td>
+		<td><a href="{{medium.url}}">{{medium.url}}</a></td>
+		<td>{{medium.created_at.datetimeDisplay()}}</td>
+		<td>{{medium.uploader_name}}</td>
+		<td>
+			<img ng-if="medium.mimetype.indexOf('image') != -1" ng-src="{{medium.url}}">
+		</td>
+<!-- 		<td>
+			<div ng-if="currentUser.admin() && medium.mimetype.indexOf('image') != -1">
+				<a ng-if="!medium.slider" class="btn btn-success" scbt-put="api/media/{{medium.id}}/slider | setting=true">Add Slider</a>
+				<a ng-if="medium.slider" class="btn btn-warning" scbt-put="api/media/{{medium.id}}/slider | setting=false">No Slider</a>
+			</div>
+		</td> -->
+		<td>
+			<a ng-show="currentUser.admin()" ng-click="removeFile(medium)" class="btn btn-danger" scbt-remove="api/media/{{medium.id}}">Remove</a>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,30 @@
+<form class="narrow-form center border-form" action="<%= user_password_url %>" method="post">
+  <h3>Change Password</h3>
+  <input 
+    type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>"
+  />
+
+  <input type="hidden" name="_method" value="PUT"/>
+    
+  <input class="hidden" 
+    name="user[reset_password_token]" 
+    type="hidden" 
+    value="<%= reset_password_token %>"
+  />
+
+  <input class="form-control"
+    placeholder="new password"
+    type="password"
+    name="user[password]" 
+  />
+
+  <input class="form-control"
+    placeholder="confirm password"
+    type="password"
+    name="user[password_confirmation]" 
+  />
+
+  <input type="submit" class="btn btn-primary btn-block" value="Change Password">
+</form>

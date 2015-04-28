@@ -1,0 +1,33 @@
+<h3>Request Information</h3>
+<form class="form-table" scbt-submit="post | api/inquiries | home">
+	<div class="form-col vertical-form">
+		<input type="text" name="inquiry[name]" placeholder="Your Name" class="form-control"/>
+
+		<input type="email" name="inquiry[email]" placeholder="Your Email" class="form-control"/>
+
+		<input type="phone" name="inquiry[phone]" placeholder="Your Phone (10 digits)" minlength="10" maxlength="10" class="form-control"/>
+
+		<div ng-hide="hideFields">
+			<select ng-model="inquiryReferral" class="form-control" name="inquiry[referral]">
+				<option value="">How did you hear about us?</option>
+			    <option ng-repeat="referral in referrals">{{referral}}</option>
+			</select>
+			<input placeholder="Other" type="text" ng-model="inquiryReferral" name="inquiry[referral]" class="form-control"/>
+		</div>
+	</div>
+	<div class="form-col vertical-form">
+		<select ng-hide="hideFields" class="form-control" name="inquiry[campus_id]">
+			<option value="">Select Campus of Interest</option>
+		    <!-- <option ng-repeat="referral in referrals">{{referral}}</option> -->
+		</select>
+
+		<select ng-hide="hideFields" ng-model="inquiryReferral" class="form-control" name="inquiry[program_id]">
+			<option value="">Select Program of Interest</option>
+		    <!-- <option ng-repeat="referral in referrals">{{referral}}</option> -->
+		</select>
+
+		<textarea rows="3" class="expand" name="inquiry[subject]" placeholder="What is your inquiry about?"></textarea>
+
+		<input type="submit" class="btn btn-primary form-control" value="Submit Request">
+	</div>
+</form>

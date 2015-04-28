@@ -1,0 +1,6 @@
+json.id(@news.id)
+json.title(@news.title)
+json.author_name(@news.author_name)
+json.description(@news.description)
+json.datetime(@news.display_datetime)
+json.content(@news.content)

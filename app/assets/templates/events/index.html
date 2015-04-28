@@ -1,0 +1,31 @@
+<div class="div-row">
+	<h3>Events</h3>
+	<a ng-show="currentUser.admin()" href="#events/new" class="btn btn-default btn-head">New Event</a>
+</div>
+
+<table class="events-table">
+	<tr ng-repeat="event in events | orderBy: 'datetime' | pageFilter: currentPage:itemsPerPage">
+		<td>
+			<div class="month">
+				{{event.datetime.formatDatetime("MMM")}}
+			</div>
+			<div class="day">
+				{{event.datetime.formatDatetime("DD")}}
+			</div>
+		</td>
+		<td>
+			<a href="#events/{{event.id}}">{{event.title}}</a>
+			<h6 class="light-font">
+				{{event.datetime.formatDatetime('hh:mm a')}} 
+				&nbsp; at &nbsp;
+				{{event.location}}
+			</h6>
+		</td>
+		<td>
+			<a class="btn btn-info" ng-show="currentUser.admin()" href="#events/{{event.id}}/edit">Edit</a>
+		</td>
+		<td>
+			<a ng-show="currentUser.admin()" class="btn btn-danger" scbt-remove="api/events/{{event.id}} | Are you sure you want to remove this event? All content will be lost after removal.">Remove</a>
+		</td>
+	</tr>
+</table>

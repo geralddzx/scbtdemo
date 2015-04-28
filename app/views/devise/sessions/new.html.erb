@@ -1,0 +1,37 @@
+<form class="narrow-form center border-form" action="<%= user_session_url %>" method="post">
+  <h3>Sign In</h3>
+  <p>
+    If you do not have an account, please consult a Stanford counselor for your usename and password.
+  </p>
+
+  <input 
+    type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+
+  <input class="form-control"
+    placeholder="username"
+    type="text"
+    name="user[username]" 
+    value="<%= @user.username %>">
+
+  <input class="form-control"
+    placeholder="password"
+    type="password"
+    name="user[password]" 
+    value="">
+
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="user[remember]">
+        Remember Me
+      </label>
+    </div>
+    <a href="<%= new_user_password_path %>">Forgot Password?</a>
+  </div>
+
+  <input type="submit" class="btn btn-primary btn-block" value="Sign In">
+</form>
+
+<br>
