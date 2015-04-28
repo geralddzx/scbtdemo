@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get "2redbeans-team-special-login" => "devise/sessions#special_login"
+
+
   root to: "static_pages#home"
   get "admin"=>"static_pages#admin"
   get "student"=>"static_pages#student"
