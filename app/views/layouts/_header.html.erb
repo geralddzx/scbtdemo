@@ -17,7 +17,7 @@
 		<a href="tel:1-888-683-1608" class="phone-link">1-888-683-1608</a>
 		<% if current_user %>
 			<% if current_user.admin? %>
-				<%= link_to 'Admin Center', "/admin", :class => "fade-button scbt-button btn btn-default" %>
+				<%= link_to 'Admin Center (click me)', "/admin", :class => "fade-button scbt-button btn btn-default red-alert" %>
 			<% end %>
 			<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "fade-button scbt-button btn btn-default" %>
 		<% else %>
